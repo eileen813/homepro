@@ -25,16 +25,12 @@ _The **HomePro** MVP back end server will have endpoints for each user, project,
 
 ### Libraries and Dependencies
 
-> Use this section to list all supporting libraries and dependencies, and their role in the project. Below is an example - this needs to be replaced!
-
-|     Library      | Description                                       |
-| :--------------: | :------------------------------------------------ |
-|  Ruby on Rails   | _Holds back end database using MVC architecture._ |
-|       Ruby       | _Lorem ipsum dolor sit amet, consectetur._        |
-|   React Router   | _Lorem ipsum dolor sit amet, consectetur._        |
-| React SemanticUI | _Lorem ipsum dolor sit amet, consectetur._        |
-|     Express      | _Lorem ipsum dolor sit amet, consectetur._        |
-|  Express Router  | _Lorem ipsum dolor sit amet, consectetur._        |
+|     Library      | Description                                                                                                                                   |
+| :--------------: | :-------------------------------------------------------------------------------------------------------------------------------------------- |
+|  Ruby on Rails   | _Holds back end database of users, projects, & rooms using MVC architecture._                                                                 |
+| React Router Dom | _Defines routes such as /home, /login, /register, etc. to its specific component._                                                            |
+|      Axios       | _Once API routes are established, axios calls for reading all projects, one project, and editing, creating, and deleting a project are made._ |
+|   Material UI    | _A React UI framework to help build HomePro's screens for login, register, and choosing a project._                                           |
 
 <br>
 
