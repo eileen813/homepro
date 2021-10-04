@@ -71,11 +71,17 @@ client
         ├── homepro-wireframe.png
     ├── screens
         ├── Home.jsx
+        ├── Home.css
         ├── Register.jsx
+        ├── Register.css
         ├── Login.jsx
+        ├── Login.css
         ├── ProjectDetail.jsx
+        ├── ProjectDetail.css
         ├── EditProject.jsx
+        ├── EditProject.css
         ├── CreateProject.jsx
+        ├── CreateProject.css
     ├── services
         ├── auth.js
         ├── config.js
@@ -83,12 +89,17 @@ client
         ├── rooms.js
     ├── components
         ├── Layout.jsx
+        ├── Layout.css
         ├── NavBar.jsx
+        ├── NavBar.css
         ├── Footer.jsx
-    ├── App.js
+        ├── Footer.css
+    ├── App.jsx
+    ├── App.css
     ├── index.js
     ├── index.css
     ├── MainContainer.jsx
+    ├── MainContainer.css
 ```
 
 ---
