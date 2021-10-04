@@ -38,6 +38,8 @@ _The **HomePro** MVP back end server will have endpoints for each user, project,
 
 #### Wireframes
 
+[HomePro Wireframe Weblink](https://www.figma.com/file/F5nsy0W7Jd57zPeur7Mr8a/HomePro?node-id=0%3A1)
+
 <img src = "assets/homepro-wireframe.png">
 
 <br>
@@ -45,6 +47,8 @@ _The **HomePro** MVP back end server will have endpoints for each user, project,
 <br>
 
 #### Component Tree
+
+[HomePro Component Tree Weblink](https://whimsical.com/homepro-E7xrEz3JryZB48bQ9HLerg)
 
 <img src = "assets/component-tree.png">
 
