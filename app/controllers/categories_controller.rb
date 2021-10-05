@@ -6,3 +6,4 @@ def index
 
   render json: @categories
 end
+end

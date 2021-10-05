@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :update, :destroy]
+  before_action :set_project, only: [:show, :update, :destroy, :add_category_to_project]
   # must be logged in for a user to create, update, and destroy a project.
-  before_action :authorize_request, only: [create, update, destroy]
+  before_action :authorize_request, only: [:create, :update, :destroy]
 
   # GET /projects
   def index
@@ -16,6 +16,7 @@ class ProjectsController < ApplicationController
   end
 
   # POST /projects
+   def create
     @project = Project.new(project_params)
 
     @project.user = @current_user
@@ -39,6 +40,15 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   def destroy
     @project.destroy
+  end
+
+  def add_category_to_project
+    @category = Category.find(params[:category_id])
+
+    @project.categories << @category
+
+    render json: @project, include: :categories
+
   end
 
   private
