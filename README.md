@@ -137,7 +137,7 @@ client
 
 #### ERD Model
 
-<img src= "assets/erd.png">
+<img src= "assets/erd.jpg">
 
 <br>
 
