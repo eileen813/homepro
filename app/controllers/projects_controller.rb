@@ -42,11 +42,12 @@ class ProjectsController < ApplicationController
     @project.destroy
   end
 
+  #adding category to project method
   def add_category_to_project
     @category = Category.find(params[:category_id])
 
     @project.categories << @category
-
+  # returns the preset list of categories, plus the newly added category.
     render json: @project, include: :categories
 
   end
@@ -59,6 +60,6 @@ class ProjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.require(:project).permit(:name, :image_url, :description)
+      params.require(:project).permit(:name, :image_url, :description,)
     end
 end
