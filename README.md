@@ -137,7 +137,7 @@ client
 
 #### ERD Model
 
-<img src= "assets/erd.jpg">
+<img src= "assets/homeproERD.jpg">
 
 <br>
 

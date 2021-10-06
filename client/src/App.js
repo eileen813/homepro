@@ -1,16 +1,17 @@
 import "./App.css";
 import Layout from "./components/Layout/Layout";
-import Nav from "./components/Nav/Nav";
-import LoginRegister from "./screens/LoginRegister/LoginRegister";
-import Footer from "./components/Footer/Footer";
+import Login from "./screens/Login/Login";
+import { Switch, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
       <Layout>
-        <Nav />
-        <LoginRegister />
-        <Footer />
+        <Switch>
+          <Route path="/login">
+            <Login />
+          </Route>
+        </Switch>
       </Layout>
     </div>
   );
