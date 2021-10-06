@@ -22,16 +22,22 @@ Project.create!(name: 'Landscape', user: @admin)
 Project.create!(name: 'Appliances', user: @admin)
 Project.create!(name: 'Flooring', user: @admin)
 Project.create!(name: 'Cabinets', user: @admin)
-Project.create!(name: 'Roof', user: @admin)
+Project.create!(name: 'General Handyman', user: @admin)
+Project.create!(name: 'Security', user: @admin)
+Project.create!(name: 'Window Treatments', user: @admin)
 
+# array of all projects
 @projects = Project.all
 
 puts "#{Project.count} projects created"
 
-@hvac = Category.create!(name: 'HVAC')
-@plumbing = Category.create!(name: 'Plumbing')
-@electrical = Category.create!(name: 'Electrical')
-@structural = Category.create!(name: 'Structural')
-@demolition = Category.create!(name: 'Demolition')
+@hvac = Category.create!(name: 'HVAC', projects: @projects)
+@plumbing = Category.create!(name: 'Plumbing', projects: @projects)
+@electrical = Category.create!(name: 'Electrical', projects: @projects)
+@structural = Category.create!(name: 'Structural', projects: @projects)
+@demolition = Category.create!(name: 'Demolition', projects: @projects)
+@tv_electronics = Category.create!(name: 'TV & Electronics', projects: @projects)
+@smart_home = Category.create!(name: 'Smart Home', projects: @projects)
+@assembly = Category.create!(name: 'Assembly', projects: @projects)
 
 puts "#{Category.count} categories created"

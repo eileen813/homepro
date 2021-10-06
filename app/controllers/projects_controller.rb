@@ -12,7 +12,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1
   def show
-    render json: @project
+    render json: @project, include: :categories
   end
 
   # POST /projects
