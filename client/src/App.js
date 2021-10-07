@@ -8,7 +8,6 @@ import { useState } from "react";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
-  const history = useHistory();
 
   const handleLogin = async (loginData) => {
     const userData = await loginUser(loginData);
