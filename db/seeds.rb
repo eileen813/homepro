@@ -16,22 +16,22 @@ User.destroy_all
 
 puts "#{User.count} users created"
 
-Project.create!(name: 'Paint', user: @admin)
-Project.create!(name: 'Roof', user: @admin)
-Project.create!(name: 'Landscape', user: @admin)
-Project.create!(name: 'Appliances', user: @admin)
-Project.create!(name: 'Flooring', user: @admin)
-Project.create!(name: 'Cabinets', user: @admin)
-Project.create!(name: 'General Handyman', user: @admin)
-Project.create!(name: 'Security', user: @admin)
-Project.create!(name: 'Window Treatments', user: @admin)
+@paint = Project.create!(name: 'Paint', user: @admin)
+@roof = Project.create!(name: 'Roof', user: @admin)
+@landscape = Project.create!(name: 'Landscape', user: @admin)
+@appliances = Project.create!(name: 'Appliances', user: @admin)
+@flooring = Project.create!(name: 'Flooring', user: @admin)
+@cabinets = Project.create!(name: 'Cabinets', user: @admin)
+@general_handyman = Project.create!(name: 'General Handyman', user: @admin)
+@security = Project.create!(name: 'Security', user: @admin)
+@window_treatments = Project.create!(name: 'Window Treatments', user: @admin)
 
 # array of all projects
 @projects = Project.all
 
 puts "#{Project.count} projects created"
 
-@hvac = Category.create!(name: 'HVAC', projects: @projects)
+@hvac = Category.create!(name: 'HVAC', projects: [@general_handyman, @appliances])
 @plumbing = Category.create!(name: 'Plumbing', projects: @projects)
 @electrical = Category.create!(name: 'Electrical', projects: @projects)
 @structural = Category.create!(name: 'Structural', projects: @projects)

@@ -5,6 +5,8 @@ export default function Nav() {
     <div>
       <h1>this is my Nav component</h1>
       <Link to="/login">Login</Link>
+      <br />
+      <Link to="/sign-up">Sign Up</Link>
     </div>
   );
 }
