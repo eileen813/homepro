@@ -38,11 +38,12 @@ function App() {
   const handleLogout = () => {
     setCurrentUser(null);
     localStorage.removeItem("authToken");
+    removeToken();
   };
 
   return (
     <div className="App">
-      <Layout currentUser={currentUser}>
+      <Layout currentUser={currentUser} handleLogout={handleLogout}>
         <Switch>
           <Route path="/login">
             <Login handleLogin={handleLogin} />
