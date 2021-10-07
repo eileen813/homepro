@@ -2,6 +2,7 @@ import "./App.css";
 import Layout from "./components/Layout/Layout";
 import Login from "./screens/Login/Login";
 import SignUp from "./screens/SignUp/SignUp";
+import MainContainer from "./MainContainer";
 import { Switch, Route, useHistory } from "react-router-dom";
 import {
   loginUser,
@@ -50,6 +51,9 @@ function App() {
           </Route>
           <Route path="/sign-up">
             <SignUp handleRegister={handleRegister} />
+          </Route>
+          <Route path="/">
+            <MainContainer />
           </Route>
         </Switch>
       </Layout>
