@@ -87,6 +87,8 @@ export default function Login(props) {
               component="form"
               noValidate
               onSubmit={(e) => {
+                // this is an anonymous arrow function giving it data.
+                // it's the same as making a handleSubmit function above.
                 e.preventDefault();
                 props.handleLogin(formData);
               }}
