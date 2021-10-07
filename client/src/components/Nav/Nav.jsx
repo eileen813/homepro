@@ -1,12 +1,24 @@
 import { Link } from "react-router-dom";
 
-export default function Nav() {
+export default function Nav(props) {
   return (
     <div>
       <h1>this is my Nav component</h1>
+      {props.currentUser ? (
+        <div>
+          <p>{props.currentUser.username}</p>
+          <button>Logout</button>
+        </div>
+      ) : (
+        <Link to="/sign-up">Sign Up</Link>
+      )}
       <Link to="/login">Login</Link>
-      <br />
-      <Link to="/sign-up">Sign Up</Link>
+      {props.currentUser && (
+        <div>
+          <Link to="/projects">Projects</Link>
+          <Link to="/categories">Categories</Link>
+        </div>
+      )}
     </div>
   );
 }
