@@ -1,58 +1,41 @@
-// import { useState, useEffect } from "react";
-// import { useParams } from "react-router-dom";
-// import { getOneProject, addCategoryToProject } from "../services/projects";
+import { Link, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { getOneProject } from "../../services/projects";
 
 export default function ProjectDetail(props) {
+  const [project, setProject] = useState("");
+  const { id } = useParams();
+  const { categories } = props;
+
+  useEffect(() => {
+    const fetchProject = async () => {
+      const projectData = await getOneProject(id);
+      setProject(projectData);
+    };
+    fetchProject();
+  }, [id]);
+
   return (
-    <h1>project detail component</h1>
-  )
-  // const [projectItem, setProjectItem] = useState(null);
-  // const [selectedCategory, setSelectedCategory] = useState("");
-  // const { id } = useParams();
-  // const { categories } = props;
+    <div>
+      <h3>{project.name}</h3>
+      <img src={project.image_url} />
+      <h3>{project.description}</h3>
 
-  // useEffect(() => {
-  //   const fetchProjectItem = async () => {
-  //     const projectData = await getOneProject(id);
-  //     setProjectItem(projectData);
-  //   };
-  //   fetchProjectItem();
-  // }, [id]);
+      <div key={project.id}>
+        <Link to={`/projects/${project.id}`}>
+          <p>{project.name}</p>
+        </Link>
+        <Link to={`/projects/${project.id}/edit`}>
+          <button>Edit</button>
+        </Link>
+        <button onClick={() => props.handleProjectDelete(project.id)}>
+          Delete
+        </button>
+      </div>
 
-  // const handleChange = (e) => {
-  //   const { value } = e.target;
-  //   setSelectedCategory(value);
-  // };
-
-  // // Handle submit for adding a category to a project
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const projectItem = await addCategoryToProject(selectedCategory, id);
-  //   setProjectItem(projectItem);
-  // };
-
-  // return (
-  //   <div>
-  //     <h3>{projectItem?.name}</h3>
-  //     {projectItem?.categories.map((category) => (
-  //       <p key={category.id}>{category.name}</p>
-  //     ))}
-  //     {/* category drop down */}
-  //     <form onSubmit={handleSubmit}>
-  //       <select onChange={handleChange} defaultValue="default">
-
-  //         <option disabled value="default">
-  //           -- Select a Flavor --
-  //         </option>
-
-
-  //         {categories.map((category) => (
-
-  //           <option value={category.id}>{category.name}</option>
-  //         ))}
-  //       </select>
-  //       <button>Add</button>
-  //     </form>
-  //   </div>
-  // );
+      <Link to="/projects/new">
+        <button>create</button>
+      </Link>
+    </div>
+  );
 }

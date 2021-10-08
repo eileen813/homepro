@@ -25,8 +25,7 @@ export default function Projects(props) {
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                {/* <p key={`project${project.id}`}>{project.name}</p> */}
-                {project.name}
+                <p key={`project${project.id}`}>{project.name}</p>
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 {project.description}

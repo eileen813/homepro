@@ -43,7 +43,7 @@ export default function MainContainer() {
   const handleProjectDelete = async (id) => {
     await deleteProject(id);
     setProjects((prevState) =>
-      prevState.filter((projectItem) => projectItem.id !== id)
+      prevState.filter((project) => project.id !== id)
     );
   };
 
@@ -59,21 +59,28 @@ export default function MainContainer() {
 
   return (
     <Switch>
-      <Route path="/categories">
-        <Categories categories={categories} />
+      <Route path="/projects/new">
+        <ProjectCreate handleProjectCreate={handleProjectCreate} />
       </Route>
+
       <Route path="/projects/:id/edit">
         <ProjectEdit
           projects={projects}
           handleProjectUpdate={handleProjectUpdate}
         />
       </Route>
+
       <Route path="/projects/:id">
-        <ProjectDetail categories={categories} />
+        <ProjectDetail
+          categories={categories}
+          handleProjectDelete={handleProjectDelete}
+        />
       </Route>
-      <Route path="/projects/new">
-        <ProjectCreate handleProjectCreate={handleProjectCreate} />
+
+      <Route path="/categories">
+        <Categories categories={categories} />
       </Route>
+
       <Route path="/projects">
         <Projects
           projects={projects}
