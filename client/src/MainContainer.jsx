@@ -1,4 +1,6 @@
+import Projects from "./screens/Projects/Projects.jsx";
 import { useState, useEffect } from "react";
+import { Switch, Route } from "react-router-dom";
 import { getAllProjects } from "./services/projects.js";
 import { getAllCategories } from "./services/categories.js";
 
@@ -23,8 +25,10 @@ export default function MainContainer() {
   }, []);
 
   return (
-    <div>
-      <h1>main container component</h1>
-    </div>
+    <Switch>
+      <Route path="/projects">
+        <Projects projects={projects}/>
+      </Route>
+    </Switch>
   );
 }
