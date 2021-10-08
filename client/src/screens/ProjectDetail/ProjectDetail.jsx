@@ -3,9 +3,10 @@ import { useState, useEffect } from "react";
 import { getOneProject } from "../../services/projects";
 
 export default function ProjectDetail(props) {
-  const [project, setProject] = useState("");
+  const [project, setProject] = useState(null);
+  const [isLoaded, setLoaded] = useState(false);
   const { id } = useParams();
-  const { categories } = props;
+  // const { categories } = props;
 
   useEffect(() => {
     const fetchProject = async () => {
@@ -13,19 +14,21 @@ export default function ProjectDetail(props) {
       setProject(projectData);
     };
     fetchProject();
+    setLoaded(true);
   }, [id]);
 
   return (
     <div>
-      <h3>{project.name}</h3>
-      <img src={project.image_url} />
-      <h3>{project.description}</h3>
+      <h3>{project?.name}</h3>
+      <img src={project?.image_url} />
+      <h3>{project?.description}</h3>
 
-      <div key={project.id}>
-        <Link to={`/projects/${project.id}`}>
-          <p>{project.name}</p>
-        </Link>
-        <Link to={`/projects/${project.id}/edit`}>
+      {project?.categories.map((category) => (
+        <p key={category.id}>{category.name}</p>
+      ))}
+
+      <div>
+        <Link to={`/projects/${project?.id}/edit`}>
           <button>Edit</button>
         </Link>
         <button onClick={() => props.handleProjectDelete(project.id)}>
@@ -34,7 +37,7 @@ export default function ProjectDetail(props) {
       </div>
 
       <Link to="/projects/new">
-        <button>create</button>
+        <button>Add New Project</button>
       </Link>
     </div>
   );

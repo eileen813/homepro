@@ -22,6 +22,8 @@ class ProjectsController < ApplicationController
     @project.user = @current_user
 
     if @project.save
+      @categories=Category.find(project_params[:categories].map {|c| c[:id]})
+      @project.categories = @categories
       render json: @project, status: :created
     else
       render json: @project.errors, status: :unprocessable_entity
@@ -30,7 +32,9 @@ class ProjectsController < ApplicationController
 
   # PATCH/PUT /projects/1
   def update
-    if @project.update(project_params)
+    if @project.update(project_params.except(:categories))
+      @categories=Category.find(project_params[:categories].map {|c| c[:id]})
+      @project.categories = @categories
       render json: @project
     else
       render json: @project.errors, status: :unprocessable_entity
@@ -60,6 +64,6 @@ class ProjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.require(:project).permit(:name, :image_url, :description,)
+      params.require(:project).permit(:name, :image_url, :description, categories: [:id, :name, :created_at, :updated_at])
     end
 end

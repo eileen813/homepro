@@ -3,6 +3,7 @@ import ProjectDetail from "./screens/ProjectDetail/ProjectDetail";
 import ProjectEdit from "./screens/ProjectEdit/ProjectEdit";
 import ProjectCreate from "./screens/ProjectCreate/ProjectCreate";
 import Categories from "./screens/Categories/Categories";
+import Home from "./screens/Home/Home";
 import { useState, useEffect } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
 import {
@@ -67,6 +68,7 @@ export default function MainContainer() {
         <ProjectEdit
           projects={projects}
           handleProjectUpdate={handleProjectUpdate}
+          categories={categories}
         />
       </Route>
 
@@ -86,6 +88,10 @@ export default function MainContainer() {
           projects={projects}
           handleProjectDelete={handleProjectDelete}
         />
+      </Route>
+
+      <Route path="/">
+        <Home />
       </Route>
     </Switch>
   );
