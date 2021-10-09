@@ -8,10 +8,16 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import { Link } from "react-router-dom";
+import "./Projects.css";
 
 export default function Projects(props) {
   return (
-    <Grid container spacing={4} justifyContent="center">
+    <Grid
+      className="projects-main-container"
+      container
+      spacing={4}
+      justifyContent="center"
+    >
       {props.projects.map((project) => (
         <Grid item xs={4}>
           <Card sx={{ maxWidth: 345 }}>
