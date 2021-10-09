@@ -1,0 +1,16 @@
+.main-container {
+  display: flex;
+}
+
+.img-column {
+  padding-left: 50px;
+}
+
+.desc-column {
+  padding-left: 25px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row-reverse;
+}

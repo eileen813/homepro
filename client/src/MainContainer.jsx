@@ -46,6 +46,7 @@ export default function MainContainer() {
     setProjects((prevState) =>
       prevState.filter((project) => project.id !== id)
     );
+    history.push("/projects");
   };
 
   const handleProjectUpdate = async (id, projectData) => {
@@ -60,10 +61,6 @@ export default function MainContainer() {
 
   return (
     <Switch>
-      <Route path="/categories">
-        <Categories categories={categories} />
-      </Route>
-
       <Route path="/projects/new">
         <ProjectCreate
           handleProjectCreate={handleProjectCreate}
@@ -91,6 +88,10 @@ export default function MainContainer() {
           projects={projects}
           handleProjectDelete={handleProjectDelete}
         />
+      </Route>
+
+      <Route path="/categories">
+        <Categories categories={categories} />
       </Route>
 
       <Route path="/">

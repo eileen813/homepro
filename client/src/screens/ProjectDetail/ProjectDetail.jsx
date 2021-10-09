@@ -2,8 +2,8 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getOneProject } from "../../services/projects";
-import ButtonGroup from "@mui/material/ButtonGroup";
 import Button from "@mui/material/Button";
+import "./ProjectDetail.css";
 
 export default function ProjectDetail(props) {
   const [project, setProject] = useState(null);
@@ -20,35 +20,44 @@ export default function ProjectDetail(props) {
   }, [id]);
 
   return (
-    <div>
-      <h3>{project?.name}</h3>
-      <img src={project?.image_url} />
-      <h3>{project?.description}</h3>
+    <>
+      <div className="main-container">
+        <div className="img-column">
+          <h3>{project?.name}</h3>
+          <img src={project?.image_url} />
+        </div>
 
-      <h2>Suggested Categories:</h2>
-      {project?.categories.map((category) => (
-        <p key={category.id}>{category.name}</p>
-      ))}
+        <div className="desc-column">
+          <p>{project?.description}</p>
 
-      <Link to={`/projects/${project?.id}/edit`}>
-        <Button color="secondary" variant="contained">
-          Edit
+          <h4>Current Selected Categories:</h4>
+          {project?.categories.map((category) => (
+            <p key={category.id}>{category.name}</p>
+          ))}
+        </div>
+      </div>
+
+      <div className="buttons">
+        <Link to={`/projects/${project?.id}/edit`}>
+          <Button color="secondary" variant="contained">
+            Edit
+          </Button>
+        </Link>
+
+        <Button
+          onClick={() => props.handleProjectDelete(project.id)}
+          color="secondary"
+          variant="contained"
+        >
+          Delete
         </Button>
-      </Link>
 
-      <Button
-        onClick={() => props.handleProjectDelete(project.id)}
-        color="secondary"
-        variant="contained"
-      >
-        Delete
-      </Button>
-
-      <Link to="/projects/new">
-        <Button color="secondary" variant="contained">
-          Add New Project
-        </Button>
-      </Link>
-    </div>
+        <Link to="/projects/new">
+          <Button color="secondary" variant="contained">
+            Add New Project
+          </Button>
+        </Link>
+      </div>
+    </>
   );
 }
