@@ -13,7 +13,6 @@ import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
 function Copyright(props) {
@@ -65,7 +64,6 @@ export default function ProjectEdit(props) {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    // const { description, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
       [name]: value,
@@ -101,6 +99,8 @@ export default function ProjectEdit(props) {
                 ? t.palette.grey[50]
                 : t.palette.grey[900],
             backgroundSize: "cover",
+            width: "auto",
+            height: "80%",
             backgroundPosition: "center",
           }}
         />
@@ -157,7 +157,10 @@ export default function ProjectEdit(props) {
               {formData.categories.map((cat) => (
                 <p>{cat.name}</p>
               ))}
+              <InputLabel id="categories">Category Dropdown</InputLabel>
               <Select
+                labelId="categories"
+                id="categories"
                 onChange={(e) => setSelectedCategory(e.target.value)}
                 value={selectedCategory}
               >
@@ -174,7 +177,7 @@ export default function ProjectEdit(props) {
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
-                Submit Edit
+                Submit This Edit
               </Button>
               <Copyright sx={{ mt: 5 }} />
             </Box>
