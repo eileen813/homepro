@@ -37,11 +37,11 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function ProjectCreate(props) {
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedCat, setSelectedCat] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     description: "",
-    image: "",
+    image_url: "",
     categories: [],
   });
 
@@ -53,16 +53,16 @@ export default function ProjectCreate(props) {
     }));
   };
 
-  const handleSelectCategory = (e) => {
+  const handleSelectedCat = (e) => {
     e.preventDefault();
-    const newCategory = props.categories.find(
-      (cat) => cat.id === parseInt(selectedCategory)
+    const newCat = props.categories.find(
+      (cat) => cat.id === parseInt(selectedCat)
     );
     setFormData((prevState) => ({
       ...prevState,
-      categories: [...prevState.categories, newCategory],
+      categories: [...prevState.categories, newCat],
     }));
-    setSelectedCategory("");
+    setSelectedCat("");
   };
 
   return (
@@ -129,23 +129,23 @@ export default function ProjectCreate(props) {
               value={formData.image_url}
               onChange={handleChange}
             />
-            {formData.categories.map((cat) => (
-              <p>{cat.name}</p>
+            {formData.categories.map((category) => (
+              <p>{category.name}</p>
             ))}
-            <InputLabel id="categories">Category Dropdown</InputLabel>
-            {/* <Select
-              labelId="categories"
-              id="categories"
-              onChange={(e) => setSelectedCategory(e.target.value)}
-              value={selectedCategory}
+            <InputLabel id="cats">Category Dropdown</InputLabel>
+            <Select
+              labelId="cats"
+              id="cats"
+              onChange={(e) => setSelectedCat(e.target.value)}
+              value={selectedCat}
             >
               {props.categories.map((category) => (
                 <MenuItem value={category.id}>{category.name}</MenuItem>
               ))}
-            </Select> */}
+            </Select>
 
             <Button
-              onClick={handleSelectCategory}
+              onClick={handleSelectedCat}
               variant="outlined"
               sx={{ mt: 3, mb: 2 }}
             >

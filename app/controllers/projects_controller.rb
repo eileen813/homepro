@@ -17,7 +17,7 @@ class ProjectsController < ApplicationController
 
   # POST /projects
    def create
-    @project = Project.new(project_params)
+    @project = Project.new(project_params.except(:categories))
 
     @project.user = @current_user
 

@@ -16,7 +16,6 @@ export default function Nav(props) {
       {props.currentUser && (
         <div>
           <Link to="/projects">Projects</Link>
-          <Link to="/categories">Categories</Link>
         </div>
       )}
     </div>

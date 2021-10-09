@@ -7,11 +7,9 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import Grid from "@mui/material/Grid";
-import { useHistory, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Projects(props) {
-  const history = useHistory();
-
   return (
     <Grid container spacing={4} justifyContent="center">
       {props.projects.map((project) => (
@@ -35,7 +33,7 @@ export default function Projects(props) {
             </CardActionArea>
             <CardActions>
               <Link to={`/projects/${project.id}`}>
-                <Button size="small">Learn More</Button>
+                <Button size="small">MORE DETAILS</Button>
               </Link>
             </CardActions>
           </Card>

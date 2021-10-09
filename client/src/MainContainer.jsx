@@ -60,8 +60,15 @@ export default function MainContainer() {
 
   return (
     <Switch>
+      <Route path="/categories">
+        <Categories categories={categories} />
+      </Route>
+
       <Route path="/projects/new">
-        <ProjectCreate handleProjectCreate={handleProjectCreate} />
+        <ProjectCreate
+          handleProjectCreate={handleProjectCreate}
+          categories={categories}
+        />
       </Route>
 
       <Route path="/projects/:id/edit">
@@ -77,10 +84,6 @@ export default function MainContainer() {
           categories={categories}
           handleProjectDelete={handleProjectDelete}
         />
-      </Route>
-
-      <Route path="/categories">
-        <Categories categories={categories} />
       </Route>
 
       <Route path="/projects">
