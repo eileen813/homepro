@@ -1,12 +1,14 @@
+import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getOneProject } from "../../services/projects";
+import ButtonGroup from "@mui/material/ButtonGroup";
+import Button from "@mui/material/Button";
 
 export default function ProjectDetail(props) {
   const [project, setProject] = useState(null);
   const [isLoaded, setLoaded] = useState(false);
   const { id } = useParams();
-  // const { categories } = props;
 
   useEffect(() => {
     const fetchProject = async () => {
@@ -23,21 +25,29 @@ export default function ProjectDetail(props) {
       <img src={project?.image_url} />
       <h3>{project?.description}</h3>
 
+      <h2>Suggested Categories:</h2>
       {project?.categories.map((category) => (
         <p key={category.id}>{category.name}</p>
       ))}
 
-      <div>
-        <Link to={`/projects/${project?.id}/edit`}>
-          <button>Edit</button>
-        </Link>
-        <button onClick={() => props.handleProjectDelete(project.id)}>
-          Delete
-        </button>
-      </div>
+      <Link to={`/projects/${project?.id}/edit`}>
+        <Button color="secondary" variant="contained">
+          Edit
+        </Button>
+      </Link>
+
+      <Button
+        onClick={() => props.handleProjectDelete(project.id)}
+        color="secondary"
+        variant="contained"
+      >
+        Delete
+      </Button>
 
       <Link to="/projects/new">
-        <button>Add New Project</button>
+        <Button color="secondary" variant="contained">
+          Add New Project
+        </Button>
       </Link>
     </div>
   );
