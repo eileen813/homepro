@@ -3,23 +3,31 @@ import "./Nav.css";
 
 export default function Nav(props) {
   return (
-    <div>
-      <ul>
-        {props.currentUser ? (
-          <div>
-            <p>{props.currentUser.username}</p>
-            <button onClick={props.handleLogout}>Logout</button>
-          </div>
-        ) : (
-          <Link to="/sign-up">Sign Up</Link>
-        )}
-        <Link to="/login">Login</Link>
-        {props.currentUser && (
-          <div>
-            <Link to="/projects">Projects</Link>
-          </div>
-        )}
-      </ul>
-    </div>
+    <nav>
+      <img className="house" src="house.png" alt="House"></img>
+      <h1 className="title">HomePro</h1>
+      {props.currentUser ? (
+        <div>
+          <p className="username">Welcome, {props.currentUser.username}</p>
+          <button className="btn" onClick={props.handleLogout}>
+            Logout
+          </button>
+        </div>
+      ) : (
+        <Link className="links" to="/sign-up">
+          Sign Up
+        </Link>
+      )}
+
+      <Link className="links" to="/login">
+        Login
+      </Link>
+
+      {props.currentUser && (
+        <Link className="links" to="/projects">
+          Projects
+        </Link>
+      )}
+    </nav>
   );
 }

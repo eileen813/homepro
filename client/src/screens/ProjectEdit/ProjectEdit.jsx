@@ -87,6 +87,7 @@ export default function ProjectEdit(props) {
       <Grid container component="main" sx={{ height: "100vh" }}>
         <CssBaseline />
         <Grid
+          className="left-img"
           item
           xs={false}
           sm={4}
@@ -99,8 +100,6 @@ export default function ProjectEdit(props) {
                 ? t.palette.grey[50]
                 : t.palette.grey[900],
             backgroundSize: "cover",
-            width: "auto",
-            height: "80%",
             backgroundPosition: "center",
           }}
         />
