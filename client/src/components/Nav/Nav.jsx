@@ -4,8 +4,11 @@ import "./Nav.css";
 export default function Nav(props) {
   return (
     <nav>
-      <img className="house" src="house.png" alt="House"></img>
-      <h1 className="title">HomePro</h1>
+      <Link to="/">
+        <img className="house" src="house.png" alt="House"></img>
+
+        <h1 className="title">HomePro</h1>
+      </Link>
       {props.currentUser ? (
         <div>
           <p className="username">Welcome, {props.currentUser.username}</p>
