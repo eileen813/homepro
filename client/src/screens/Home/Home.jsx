@@ -32,8 +32,8 @@ export default function Home() {
               </ButtonBase>
             </Grid>
             <Grid item xs={12} sm container>
-              <Grid item xs container direction="column" spacing={1}>
-                <Grid item xs>
+              <Grid item xs container direction="column" spacing={10}>
+                <Grid className="top-paragraph" item xs>
                   <Typography gutterBottom variant="subtitle1" component="div">
                     Is your significant other a jack-of-all trades? Or how about
                     an enthusiastic handyman? Does your significant other love

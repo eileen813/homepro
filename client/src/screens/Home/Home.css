@@ -2,6 +2,10 @@
   margin-top: 20px;
 }
 
+.top-paragraph {
+  margin-top: 50px;
+}
+
 @media screen and (max-width: 650px) {
   .home-container {
     display: flex;

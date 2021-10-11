@@ -14,6 +14,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
+import "./ProjectEdit.css";
 
 function Copyright(props) {
   return (
@@ -84,7 +85,12 @@ export default function ProjectEdit(props) {
 
   return (
     <ThemeProvider theme={theme}>
-      <Grid container component="main" sx={{ height: "100vh" }}>
+      <Grid
+        className="edit-container"
+        container
+        component="main"
+        sx={{ height: "100vh" }}
+      >
         <CssBaseline />
         <Grid
           className="left-img"

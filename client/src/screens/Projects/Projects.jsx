@@ -19,7 +19,7 @@ export default function Projects(props) {
       justifyContent="center"
     >
       {props.projects.map((project) => (
-        <Grid item xs={4}>
+        <Grid item className="grid-items" xs={4}>
           <Card sx={{ maxWidth: 345 }}>
             <CardActionArea>
               <CardMedia
