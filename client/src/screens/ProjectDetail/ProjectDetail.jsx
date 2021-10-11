@@ -7,7 +7,7 @@ import "./ProjectDetail.css";
 
 export default function ProjectDetail(props) {
   const [project, setProject] = useState(null);
-  const [isLoaded, setLoaded] = useState(false);
+  // const [isLoaded, setLoaded] = useState(false);
   const { id } = useParams();
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export default function ProjectDetail(props) {
       setProject(projectData);
     };
     fetchProject();
-    setLoaded(true);
+    // setLoaded(true);
   }, [id]);
 
   return (
@@ -24,7 +24,7 @@ export default function ProjectDetail(props) {
       <div className="main-container">
         <div className="img-column">
           <h3>{project?.name}</h3>
-          <img src={project?.image_url} />
+          <img src={project?.image_url} alt="project" />
         </div>
 
         <div className="desc-column">
@@ -34,29 +34,27 @@ export default function ProjectDetail(props) {
           {project?.categories.map((category) => (
             <p key={category.id}>{category.name}</p>
           ))}
+
+          <Link to={`/projects/${project?.id}/edit`}>
+            <Button color="secondary" variant="contained">
+              Edit
+            </Button>
+          </Link>
+
+          <Button
+            onClick={() => props.handleProjectDelete(project.id)}
+            color="secondary"
+            variant="contained"
+          >
+            Delete
+          </Button>
+
+          <Link to="/projects/new">
+            <Button color="secondary" variant="contained">
+              Add New Project
+            </Button>
+          </Link>
         </div>
-      </div>
-
-      <div className="buttons">
-        <Link to={`/projects/${project?.id}/edit`}>
-          <Button color="secondary" variant="contained">
-            Edit
-          </Button>
-        </Link>
-
-        <Button
-          onClick={() => props.handleProjectDelete(project.id)}
-          color="secondary"
-          variant="contained"
-        >
-          Delete
-        </Button>
-
-        <Link to="/projects/new">
-          <Button color="secondary" variant="contained">
-            Add New Project
-          </Button>
-        </Link>
       </div>
     </>
   );

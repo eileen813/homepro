@@ -13,8 +13,8 @@ import "./Projects.css";
 export default function Projects(props) {
   return (
     <Grid
-      className="projects-main-container"
       container
+      className="projects-main-container"
       spacing={4}
       justifyContent="center"
     >

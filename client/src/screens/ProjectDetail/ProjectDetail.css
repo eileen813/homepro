@@ -1,16 +1,32 @@
 .main-container {
   display: flex;
+  height: 75vh;
+  margin-top: 20px;
 }
 
 .img-column {
   padding-left: 50px;
+  text-align: center;
 }
 
 .desc-column {
-  padding-left: 25px;
+  padding-top: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .buttons {
   display: flex;
   flex-direction: row-reverse;
+}
+
+@media screen and (max-width: 650px) {
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    height: 120vh;
+  }
+  .img-column {
+    padding-left: 10px;
+  }
 }

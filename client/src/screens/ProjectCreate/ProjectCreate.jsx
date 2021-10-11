@@ -63,124 +63,106 @@ export default function ProjectCreate(props) {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-            <ConstructionIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Project Not Listed? Create It Below:
-          </Typography>
+    <div className="create-container">
+      <ThemeProvider theme={theme}>
+        <Container component="main" maxWidth="xs">
+          <CssBaseline />
           <Box
-            component="form"
-            onSubmit={(e) => {
-              e.preventDefault();
-              props.handleProjectCreate(formData);
+            sx={{
+              marginTop: 8,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
             }}
-            noValidate
-            sx={{ mt: 1 }}
           >
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="name"
-              label="Name"
-              name="name"
-              autoComplete="name"
-              autoFocus
-              value={formData.name}
-              onChange={handleChange}
-            />
-            <TextField
-              margin="normal"
-              rows={6}
-              required
-              fullWidth
-              multiline
-              name="description"
-              label="Description"
-              id="description"
-              autoComplete="current-description"
-              value={formData.description}
-              onChange={handleChange}
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="image_url"
-              label="Image URL"
-              name="image_url"
-              autoComplete="image_url"
-              autoFocus
-              value={formData.image_url}
-              onChange={handleChange}
-            />
-            {formData.categories.map((category) => (
-              <p>{category.name}</p>
-            ))}
-            <InputLabel id="cats">Category Dropdown</InputLabel>
-            <Select
-              labelId="cats"
-              id="cats"
-              onChange={(e) => setSelectedCat(e.target.value)}
-              value={selectedCat}
+            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+              <ConstructionIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              Project Not Listed? Create It Below:
+            </Typography>
+            <Box
+              component="form"
+              onSubmit={(e) => {
+                e.preventDefault();
+                props.handleProjectCreate(formData);
+              }}
+              noValidate
+              sx={{ mt: 1 }}
             >
-              {props.categories.map((category) => (
-                <MenuItem value={category.id}>{category.name}</MenuItem>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="name"
+                label="Name"
+                name="name"
+                autoComplete="name"
+                autoFocus
+                value={formData.name}
+                onChange={handleChange}
+              />
+              <TextField
+                margin="normal"
+                rows={6}
+                required
+                fullWidth
+                multiline
+                name="description"
+                label="Description"
+                id="description"
+                autoComplete="current-description"
+                value={formData.description}
+                onChange={handleChange}
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="image_url"
+                label="Image URL"
+                name="image_url"
+                autoComplete="image_url"
+                autoFocus
+                value={formData.image_url}
+                onChange={handleChange}
+              />
+              {formData.categories.map((category) => (
+                <p>{category.name}</p>
               ))}
-            </Select>
+              <InputLabel id="cats">Category Dropdown</InputLabel>
+              <Select
+                labelId="cats"
+                id="cats"
+                onChange={(e) => setSelectedCat(e.target.value)}
+                value={selectedCat}
+              >
+                {props.categories.map((category) => (
+                  <MenuItem value={category.id}>{category.name}</MenuItem>
+                ))}
+              </Select>
 
-            <Button
-              onClick={handleSelectedCat}
-              variant="outlined"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Add Category
-            </Button>
+              <Button
+                onClick={handleSelectedCat}
+                variant="outlined"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Add Category
+              </Button>
 
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Submit New Project
-            </Button>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Submit New Project
+              </Button>
+            </Box>
           </Box>
-        </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
-      </Container>
-    </ThemeProvider>
-
-    // <form
-    //   onSubmit={(e) => {
-    //     e.preventDefault();
-    //     props.handleProjectCreate(formData);
-    //   }}
-    // >
-    //   <h3>Create New Project</h3>
-    //   <label>
-    //     Name:
-    //     <input
-    //       type="text"
-    //       name="name"
-    //       value={formData.name}
-    //       onChange={handleChange}
-    //     />
-    //   </label>
-    //   <br />
-    //   <button>Submit</button>
-    // </form>
+          <Copyright sx={{ mt: 8, mb: 4 }} />
+        </Container>
+      </ThemeProvider>
+    </div>
   );
 }

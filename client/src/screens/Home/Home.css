@@ -1,9 +1,9 @@
-.projects-main-container {
-  padding: 20px;
-  height: 200vh;
+.home-container {
+  margin-top: 20px;
 }
+
 @media screen and (max-width: 650px) {
-  .projects-main-container {
+  .home-container {
     display: flex;
     flex-direction: column;
   }

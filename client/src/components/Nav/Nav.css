@@ -3,7 +3,7 @@
 nav {
   list-style-type: none;
   width: 100%;
-  height: 140px;
+  height: 135px;
   margin: 0;
   padding: 0;
   border: 4px solid #9a7aa0ed;
@@ -15,7 +15,6 @@ nav {
   float: right;
   padding-right: 50px;
   padding-left: 25px;
-  margin-top: 0px;
 }
 
 .links {
@@ -45,4 +44,17 @@ nav {
 
 .btn {
   float: right;
+}
+
+@media screen and (max-width: 650px) {
+  .username,
+  .links {
+    font-size: 10px;
+  }
+  .title {
+    font-size: 35px;
+  }
+  .house {
+    margin-top: 10px;
+  }
 }
