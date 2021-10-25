@@ -1,6 +1,6 @@
 # HomePro
 
-A website to help keep track of all your home remodeling projects.
+[HomePro](https://home-pro.netlify.app/) is a website to help keep track of all your home remodeling projects.
 
 ## Overview
 
@@ -114,20 +114,20 @@ client
 
 | Task                                      | Priority | Estimated Time | Time Invested | Actual Time |
 | ----------------------------------------- | :------: | :------------: | :-----------: | :---------: |
-| README & Wireframe Setup                  |    H     |     5 hrs      |      TBD      |     TBD     |
-| Build Server & Endpoints                  |    H     |     4 hrs      |      TBD      |     TBD     |
-| Build Tables & Associations               |    H     |     4 hrs      |      TBD      |     TBD     |
-| Implement Authorization                   |    H     |     5 hrs      |      TBD      |     TBD     |
-| Create Back End CRUD Actions              |    H     |     5 hrs      |      TBD      |     TBD     |
-| Create React App & Data Structure Setup   |    H     |      1 hr      |      TBD      |     TBD     |
-| Define React State & Props Efficiently    |    H     |     3 hrs      |      TBD      |     TBD     |
-| Use Data from Ruby & Render To Components |    H     |     5 hrs      |      TBD      |     TBD     |
-| Create Front End CRUD Actions             |    H     |     5 hrs      |      TBD      |     TBD     |
-| Style with MUI                            |    H     |     5 hrs      |      TBD      |     TBD     |
-| Style with CSS                            |    H     |     3 hrs      |      TBD      |     TBD     |
-| Debug & Code Cleanup                      |    H     |     3 hrs      |      TBD      |     TBD     |
-| Deploy Front & Back Ends                  |    H     |      1 hr      |      TBD      |     TBD     |
-| TOTAL                                     |          |     49 hrs     |      TBD      |     TBD     |
+| README & Wireframe Setup                  |    H     |     5 hrs      |       6       |      6      |
+| Build Server & Endpoints                  |    H     |     4 hrs      |       6       |      6      |
+| Build Tables & Associations               |    H     |     4 hrs      |       4       |      4      |
+| Implement Authorization                   |    H     |     5 hrs      |       6       |      6      |
+| Create Back End CRUD Actions              |    H     |     5 hrs      |       5       |      5      |
+| Create React App & Data Structure Setup   |    H     |      1 hr      |       1       |      1      |
+| Define React State & Props Efficiently    |    H     |     3 hrs      |       3       |      3      |
+| Use Data from Ruby & Render To Components |    H     |     5 hrs      |       5       |      5      |
+| Create Front End CRUD Actions             |    H     |     5 hrs      |       5       |      5      |
+| Style with MUI                            |    H     |     5 hrs      |       5       |      5      |
+| Style with CSS                            |    H     |     3 hrs      |       3       |      3      |
+| Debug & Code Cleanup                      |    H     |     3 hrs      |       3       |      3      |
+| Deploy Front & Back Ends                  |    H     |      1 hr      |       1       |      1      |
+| TOTAL                                     |          |     49 hrs     |    53 hrs     |   53 hrs    |
 
 ---
 
@@ -151,10 +151,25 @@ I would like to include a budget tracker/calculator under the user's profile. I 
 
 ## Code Showcase
 
-Brief code snippet to follow once built.
+```
+  # POST /projects
+   def create
+    @project = Project.new(project_params.except(:categories))
+
+    @project.user = @current_user
+
+    if @project.save
+      @categories=Category.find(project_params[:categories].map {|c| c[:id]})
+      @project.categories = @categories
+      render json: @project, status: :created
+    else
+      render json: @project.errors, status: :unprocessable_entity
+    end
+  end
+```
 
 ---
 
 ## Code Issues & Resolutions
 
-A list of all major issues encountered and their resolutions to follow once website is fully built.
+I ran into issues having to render the dropdown data to match with the exact project along with its category. I had to edit the post and put requests in the back and front ends to match each category with its specific id to that project. I also had to add an exception on the backend to not include the specific ID to that project, allowing the user to choose any category, no matter what project the category is tied to.
